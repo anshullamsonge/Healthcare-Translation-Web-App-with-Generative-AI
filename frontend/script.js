@@ -1,3 +1,4 @@
+const BACKEND_URL = "https://healthcare-translator-backend.onrender.com"; // <--- your Render URL
 let recognition;
 let originalText = "";
 let translatedText = "";
