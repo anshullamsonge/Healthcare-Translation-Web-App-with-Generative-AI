@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://healthcare-translator-backend.onrender.com"; // <--- your Render URL
+const BACKEND_URL = "https://healthcare-translator-backend.onrender.com"; 
 let recognition;
 let originalText = "";
 let translatedText = "";
@@ -14,7 +14,6 @@ function startRecording() {
         originalText = text;
         document.getElementById("original").innerText = text;
 
-        // Send to backend for translation
         translateText(text);
     };
 
@@ -30,7 +29,7 @@ function stopRecording() {
 async function translateText(text) {
     const outputLang = document.getElementById("output-lang").value;
 
-    const res = await fetch("http://127.0.0.1:8000/translate", {
+    const res = await fetch(`${BACKEND_URL}/translate`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
