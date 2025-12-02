@@ -19,11 +19,9 @@ app.add_middleware(
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-
 class TranslateRequest(BaseModel):
     text: str
     target_language: str
-
 
 @app.post("/translate")
 async def translate(req: TranslateRequest):
@@ -33,8 +31,9 @@ async def translate(req: TranslateRequest):
             input=f"Translate this to {req.target_language}: {req.text}"
         )
 
-        translated = response.output_text
-        
+        # Correct way to extract text
+        translated = response.output[0].content[0].text
+
         return {"translated_text": translated}
 
     except Exception as e:
