@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Translator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 28px;
+        }
+        button {
+            padding: 10px 15px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        select {
+            padding: 8px;
+            margin: 5px;
+        }
+        #original, #translated {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            background: #fafafa;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>🏥 Healthcare Translator</h2>
+
+    <div>
+        <select id="input-lang">
+            <option value="en">English</option>
+            <option value="hi">Hindi</option>
+            <option value="es">Spanish</option>
+        </select>
+
+        <select id="output-lang">
+            <option value="hi">Hindi</option>
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+        </select>
+
+        <button onclick="startRecording()">🎙 Start Recording</button>
+        <button onclick="stopRecording()">■ Stop</button>
+    </div>
+
+    <h3>Original Transcript:</h3>
+    <div id="original"></div>
+
+    <h3>Translated Transcript:</h3>
+    <div id="translated"></div>
+
+    <button onclick="speakTranslated()">🔊 Speak</button>
+
+    <script src="script.js"></script>
+</body>
+</html>

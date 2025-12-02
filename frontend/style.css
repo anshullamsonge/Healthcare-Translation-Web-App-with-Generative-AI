@@ -1,0 +1,125 @@
+/* ===== GENERAL LAYOUT ===== */
+body {
+    font-family: 'Segoe UI', Roboto, Arial, sans-serif;
+    background: #f4f9ff; /* medical light blue */
+    margin: 0;
+    padding: 0;
+    color: #1a2b44; /* dark medical blue */
+}
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* ===== HEADER ===== */
+h1 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 32px;
+    color: #155ea8; /* hospital blue */
+    margin-bottom: 30px;
+}
+
+h1 img {
+    width: 40px;
+}
+
+/* ===== DROPDOWNS & BUTTONS ROW ===== */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+select, button {
+    padding: 12px 16px;
+    border-radius: 8px;
+    border: 1px solid #c7d9eb;
+    font-size: 15px;
+    background: white;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+/* Dropdowns Hover */
+select:hover {
+    border-color: #5aa3e8;
+}
+
+/* Buttons */
+button {
+    background: #e8f2ff;
+    color: #155ea8;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #d6e8ff;
+}
+
+/* Stop button */
+.stop-btn {
+    background: #ffdddd;
+    color: #8b0000;
+}
+
+.stop-btn:hover {
+    background: #ffcccc;
+}
+
+/* ===== SECTIONS ===== */
+.section-title {
+    font-weight: bold;
+    font-size: 20px;
+    margin: 20px 0 10px;
+}
+
+/* Text boxes */
+.output-box {
+    width: 100%;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    border: 1px solid #cfd8e3;
+    font-size: 16px;
+    min-height: 60px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.06);
+}
+
+/* ===== SPEAKER BUTTON ===== */
+.speak-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 18px;
+    background: #155ea8;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    margin-top: 12px;
+}
+
+.speak-btn:hover {
+    background: #0d4b88;
+}
+
+/* Speaker icon */
+.speak-btn img {
+    width: 18px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
+    .controls {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    select, button {
+        width: 100%;
+    }
+}
