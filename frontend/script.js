@@ -1,4 +1,4 @@
-const BACKEND_URL = "https://healthcare-translator-backend.onrender.com"; 
+const BACKEND_URL = "https://healthcare-translator-project-backend.onrender.com";
 let recognition;
 let originalText = "";
 let translatedText = "";
@@ -29,19 +29,32 @@ function stopRecording() {
 async function translateText(text) {
     const outputLang = document.getElementById("output-lang").value;
 
-    const res = await fetch(`${BACKEND_URL}/translate`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-            text: text,
-            target_language: outputLang
-        })
-    });
+    try {
+        const res = await fetch(`${BACKEND_URL}/translate`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                text: text,
+                target_language: outputLang
+            })
+        });
 
-    const data = await res.json();
-    translatedText = data.translated_text;
+        const data = await res.json();
 
-    document.getElementById("translated").innerText = translatedText;
+        if (data.error) {
+            document.getElementById("translated").innerText = "Error: " + data.error;
+            return;
+        }
+
+        translatedText = data.translated_text;
+        document.getElementById("translated").innerText = translatedText;
+
+    } catch (error) {
+        document.getElementById("translated").innerText = "Backend unreachable.";
+        console.log("Error:", error);
+    }
 }
 
 function speakTranslated() {
